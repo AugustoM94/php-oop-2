@@ -10,10 +10,6 @@
             </p>
             <div class="d-flex justify-content-between align-items-flex-start">
                 <?= $custom ?>
-                <div>
-                    <?= $quantity ?>
-                    <?= $price ?>
-                </div>
             </div>
 
         </div>
