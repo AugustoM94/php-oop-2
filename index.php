@@ -2,6 +2,7 @@
 include __DIR__ . '/views/header.php';
 include __DIR__ . '/model/Movie.php';
 include __DIR__ . '/model/GameApp.php';
+include __DIR__ . '/model/Books.php';
 
 
 ?>
@@ -22,7 +23,13 @@ include __DIR__ . '/model/GameApp.php';
     </header>
 
     <section id="books">
-
+    <h2>Books</h2>
+         <div class="row gy-4">
+    <?php
+         foreach ($books as $book) {
+            $book->printCardBook();
+         }
+     ?> 
     </section>
 
     <section id="movies" class="py-3">
