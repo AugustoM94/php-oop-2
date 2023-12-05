@@ -9,11 +9,14 @@
                 <?= $shortDescription ?>
             </p>
             <div class="d-flex justify-content-between align-items-flex-start">
-              Authors:    <?= $authors ?>
+             <p>By: <?= implode(', ', $authors) ?></p>
             </div>
             <div>
-                Categories:  <?= $categories ?>
-                Pagine:  <?= $pageCount ?>
+               <?= implode(', ', $categories) ?></p>
+             </div>
+            <div>
+n             Pag.:  <?= $pageCount ?>
+
             </div>
         </div>
     </div>
