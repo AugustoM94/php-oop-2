@@ -15,7 +15,7 @@
                <?= implode(', ', $categories) ?></p>
              </div>
             <div>
-n             Pag.:  <?= $pageCount ?>
+             Pagine:  <?= $pageCount ?>
 
             </div>
         </div>

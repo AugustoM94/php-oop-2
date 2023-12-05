@@ -24,7 +24,7 @@ class Book
         $thumbnailUrl = $this->thumbnailUrl;
         $title = $this->title;
         $authors = $this->authors;
-        $shortDescription = $this->shortDescription;
+        $shortDescription = substr($this->shortDescription, 0, 100,) . '...';
         $categories = $this->categories;
         $pageCount = $this->pageCount;
         include __DIR__ . '/../views/cardBook.php';

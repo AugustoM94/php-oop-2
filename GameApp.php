@@ -9,7 +9,7 @@ include __DIR__ . '/model/Books.php';
 
 <section class="container">
    <header>
-        <div class="navbar ">
+        <div class="navbar">
             <div class="logo">
                 <a href="index.php">          
                     <img src="image/logo.jpg" alt="logo">
@@ -17,7 +17,7 @@ include __DIR__ . '/model/Books.php';
             </div>
             <nav>
                 <ul class="d-flex  justify-content-between p-3">
-                    <li  class="px-3"><a href="BookApp.php">Books</a></li>
+                    <li class="px-3"><a href="BookApp.php">Books</a></li>
                     <li class="px-3"><a href="MovieApp.php">Movies</a></li>
                     <li class="px-3"><a href="GameApp.php">Games</a></li>
                 </ul>
@@ -27,12 +27,26 @@ include __DIR__ . '/model/Books.php';
 
 
 
+
+
+    <section id="games">
+         <h2>Games</h2>
+         <div class="row gy-4">
+    <?php
+         foreach ($games as $game) {
+            $game->printCardGame();
+         }
+     ?> 
+    </section>
+
+
+</div>
 </section>
 
 
 
 <?php
 
-
+include __DIR__ . '/views/footer.php';
 
 ?>

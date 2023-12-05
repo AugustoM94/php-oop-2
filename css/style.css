@@ -5,7 +5,7 @@
 }
 
 body{
-    background-color: #232321;
+    background-color: #FEF898;
 }
 
 h1{
@@ -21,4 +21,14 @@ main i{
 img {
     max-width: 300px;
     max-height: 250px;
+}
+
+a{
+    color: #FEF898;
+    list-style: none;
+}
+
+.logo img{
+    width: 600px;
+    border-radius: 20%;
 }

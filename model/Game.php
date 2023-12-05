@@ -23,8 +23,8 @@ public function __construct( $appid,  $name,  $img_icon_url,  $playtime_forever 
 }
     public function printCardGame()
     {
-        $image = $this->img_icon_url;
-        $id = $this->appid;
+        $image = $this->image;
+        $id = $this->id;
         $name = $this->name;
         $playtime_forever = $this->playtime_forever;
         include __DIR__ . '/../views/cardGame.php';
