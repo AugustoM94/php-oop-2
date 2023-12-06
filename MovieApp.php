@@ -3,6 +3,7 @@ include __DIR__ . '/views/header.php';
 include __DIR__ . '/model/Movie.php';
 include __DIR__ . '/model/Game.php';
 include __DIR__ . '/model/Books.php';
+include __DIR__ . '/Traits/DrawCard.php';
 
 
 ?>
@@ -17,8 +18,8 @@ include __DIR__ . '/model/Books.php';
             </div>
             <nav>
                 <ul class="d-flex  justify-content-between p-3">
-                    <li class="px-3"><a href="BookApp.php">Books</a></li>
-                    <li class="px-3"><a href="Movie.php">Movies</a></li>
+                    <li class="px-4"><a href="BookApp.php">Books</a></li>
+                    <li class="px-3"><a href="MovieApp.php">Movies</a></li>
                     <li class="px-3"><a href="GameApp.php">Games</a></li>
                 </ul>
             </nav>
@@ -32,7 +33,7 @@ include __DIR__ . '/model/Books.php';
          <div class="row">
     <?php
          foreach ($movies as $movie) {
-            $movie->printCard();
+            $movie->printCard($movie->formatCard());
          }
      ?>   
    </section>

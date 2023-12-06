@@ -1,7 +1,9 @@
 <?php
-class Movie  
-
+include __DIR__ ."/../Traits/DrawCard.php";
+class Movie
 {
+    use DrawCard;
+
     private int $id;
     private string $title;
     private string $overview;
@@ -9,10 +11,10 @@ class Movie
     private string $poster_path;
     private string $original_language;
 
-    public function __construct($id, $title, $overview, $vote, $poster_path, $original_language,) 
+    public function __construct($id, $title, $overview, $vote, $poster_path, $original_language)
     {
         $this->id = $id;
-        $this->title = $title;  
+        $this->title = $title;
         $this->overview = $overview;
         $this->vote_average = $vote;
         $this->poster_path = $poster_path;
@@ -30,28 +32,23 @@ class Movie
         return $template;
     }
 
-
-    public function printCard()
+    public function formatCard()
     {
-        $image = $this->poster_path;
-        $title = strlen($this->title) > 28 ? substr($this->title, 0, 28) . '...' : $this->title;
-        $content =substr($this->overview, 0, 100) . "...";
-        $custom = $this->getVote();
-        include __DIR__ . '/../views/card.php';
+        $cardItem = [
+            'image' => $this->poster_path,
+            'title' => strlen($this->title) > 28 ? substr($this->title, 0, 28) . '...' : $this->title,
+            'content' => substr($this->overview, 0, 100) . "...",
+            'custom' => $this->getVote()
+        ];
+
+        return $cardItem;
     }
 
 }
-
-
-
-function fetchAll() {
+ function fetchAll() {
     $movieString = file_get_contents(__DIR__ . '/movie_db.json');
-
     $movieList = json_decode($movieString, true);
-
     $movies = [];
-
-
 
     foreach ($movieList as $movie) {
         $movies[] = new Movie(
@@ -60,13 +57,11 @@ function fetchAll() {
             $movie['overview'],
             $movie['vote_average'],
             $movie['poster_path'],
-            $movie['original_language'],
-          
+            $movie['original_language']
         );
     }
     return $movies;
 }
 
 $movies = fetchAll();
-
 ?>

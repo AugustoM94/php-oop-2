@@ -2,11 +2,16 @@
 
 class Product
 {
-    protected float $price;
-    public int $sconto;
-    protected int $quantity;
+    protected float $id;
+    public int $image;
+    protected int $content;
 
-
+public function __construct( $id,  $image,  $content )
+{
+        $this->id = $id;   
+        $this->image = $image;
+        $this->content = $content;
+}
 
 }
 

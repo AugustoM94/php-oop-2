@@ -11,9 +11,11 @@ include __DIR__ . '/model/Books.php';
    <header>
         <div class="navbar ">
             <div class="logo">
-                <a href="index.php">          
+            <h1>
+                 <a href="index.php">          
                     <img src="image/logo.jpg" alt="logo">
                 </a>
+             </h1>
             </div>
             <nav>
                 <ul class="d-flex  justify-content-between p-3">

@@ -10,24 +10,26 @@ body{
 
 h1{
     color: white;
+    font-size: 4em;
 }
 h2{
     color: white;
 }
-main i{
-    color: yellow;
-}
+
 
 img {
     max-width: 300px;
     max-height: 250px;
 }
 
-a{
-    color: #FEF898;
+li a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.8em;
+}
+li {
     list-style: none;
 }
-
 .logo img{
     width: 600px;
     border-radius: 20%;
