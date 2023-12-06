@@ -1,9 +1,9 @@
 <?php
-include __DIR__ ."/../Traits/DrawCard.php";
+include __DIR__ . "/../Traits/DrawCard.php";
+
 class Movie
 {
     use DrawCard;
-
     private int $id;
     private string $title;
     private string $overview;
@@ -23,12 +23,29 @@ class Movie
 
     public function getVote()
     {
+        try {
+            $voteTemplate = $this->starTemplate();
+            return $voteTemplate;
+        } catch (Exception $e) {
+            return "Error: " . $e->getMessage();
+        }
+    }
+
+    private function starTemplate()
+    {
         $vote = ceil($this->vote_average / 2);
         $template = "<p>";
+        
         for ($n = 1; $n <= 5; $n++) {
             $template .= $n <= $vote ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>';
         }
+        
         $template .= "</p>";
+
+        if ($vote < 0 || $vote > 5) {
+            throw new Exception("Error during vote calculation.");
+        }
+
         return $template;
     }
 
@@ -43,25 +60,29 @@ class Movie
 
         return $cardItem;
     }
-
 }
- function fetchAll() {
+
+function fetchAll()
+{
     $movieString = file_get_contents(__DIR__ . '/movie_db.json');
     $movieList = json_decode($movieString, true);
     $movies = [];
 
-    foreach ($movieList as $movie) {
+    foreach ($movieList as $movieData) {
         $movies[] = new Movie(
-            $movie['id'],
-            $movie['title'],
-            $movie['overview'],
-            $movie['vote_average'],
-            $movie['poster_path'],
-            $movie['original_language']
+            $movieData['id'],
+            $movieData['title'],
+            $movieData['overview'],
+            $movieData['vote_average'],
+            $movieData['poster_path'],
+            $movieData['original_language']
         );
     }
+
     return $movies;
 }
 
 $movies = fetchAll();
+
+
 ?>

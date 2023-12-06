@@ -3,7 +3,6 @@ include __DIR__ . '/views/header.php';
 include __DIR__ . '/model/Movie.php';
 include __DIR__ . '/model/Game.php';
 include __DIR__ . '/model/Books.php';
-include __DIR__ . '/Traits/DrawCard.php';
 
 
 ?>
